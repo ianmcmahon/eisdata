@@ -44,6 +44,44 @@ type EISData struct {
 	SPARE  uint8
 }
 
+func (e EISData) String() string {
+	var buf bytes.Buffer
+
+	fmt.Fprintf(&buf, "Header: %v\n", e.Header)
+	fmt.Fprintf(&buf, "Tach: %d\n", e.Tach)
+	fmt.Fprintf(&buf, "CHT: %v\n", e.CHT)
+	fmt.Fprintf(&buf, "EGT: %v\n", e.EGT)
+	fmt.Fprintf(&buf, "AUX5: %d\n", e.AUX5)
+	fmt.Fprintf(&buf, "AUX6: %d\n", e.AUX6)
+	fmt.Fprintf(&buf, "ASPD: %d\n", e.ASPD)
+	fmt.Fprintf(&buf, "ALT: %d\n", e.ALT)
+	fmt.Fprintf(&buf, "VOLT: %d\n", e.VOLT)
+	fmt.Fprintf(&buf, "FUELF: %d\n", e.FUELF)
+	fmt.Fprintf(&buf, "UNIT: %d\n", e.UNIT)
+	fmt.Fprintf(&buf, "CARB: %d\n", e.CARB)
+	fmt.Fprintf(&buf, "ROCSGN: %d\n", e.ROCSGN)
+	fmt.Fprintf(&buf, "OATH: %d\n", e.OATH)
+	fmt.Fprintf(&buf, "OILT: %d\n", e.OILT)
+	fmt.Fprintf(&buf, "OILP: %d\n", e.OILP)
+	fmt.Fprintf(&buf, "AUX1: %d\n", e.AUX1)
+	fmt.Fprintf(&buf, "AUX2: %d\n", e.AUX2)
+	fmt.Fprintf(&buf, "AUX3: %d\n", e.AUX3)
+	fmt.Fprintf(&buf, "AUX4: %d\n", e.AUX4)
+	fmt.Fprintf(&buf, "COOL: %d\n", e.COOL)
+	fmt.Fprintf(&buf, "ETI: %d\n", e.ETI)
+	fmt.Fprintf(&buf, "QTY: %d\n", e.QTY)
+	fmt.Fprintf(&buf, "HRS: %d\n", e.HRS)
+	fmt.Fprintf(&buf, "MIN: %d\n", e.MIN)
+	fmt.Fprintf(&buf, "SEC: %d\n", e.SEC)
+	fmt.Fprintf(&buf, "ENDHRS: %d\n", e.ENDHRS)
+	fmt.Fprintf(&buf, "ENDMIN: %d\n", e.ENDMIN)
+	fmt.Fprintf(&buf, "BARO: %d\n", e.BARO)
+	fmt.Fprintf(&buf, "MAGHD: %d\n", e.MAGHD)
+	fmt.Fprintf(&buf, "SPARE: %d\n", e.SPARE)
+
+	return buf.String()
+}
+
 
 func main() {
 	desiredPort := "/dev/ttyUSB0"
@@ -134,7 +172,7 @@ func main() {
 		}
 
 		// Do something with the data
-		log.Printf("%+v\n", data)
+		log.Printf("%s\n", data)
 	}
 }
 
